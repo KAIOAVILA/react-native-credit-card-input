@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {
-  View,
-  ImageBackground,
-  Image,
-  Text,
-  StyleSheet,
-  Platform
-} from "react-native";
+import { View, Image, Text, StyleSheet, Platform } from "react-native";
 
 import defaultIcons from "./Icons";
 import FlipCard from "react-native-flip-card";
@@ -136,8 +129,8 @@ const s = StyleSheet.create({
     const transform = {
       transform: [
         { scale },
-        { translateY: BASE_SIZE.height * (scale - 1) / 2 - 5 },
-        { translateX: BASE_SIZE.width * (scale - 1) / 2 - 7 }
+        { translateY: (BASE_SIZE.height * (scale - 1)) / 2 - 5 },
+        { translateX: (BASE_SIZE.width * (scale - 1)) / 2 - 7 }
       ]
     };
 
@@ -152,10 +145,7 @@ const s = StyleSheet.create({
           clickable={false}
           flip={shouldFlip}
         >
-          <ImageBackground
-            style={[BASE_SIZE, s.cardFace, transform]}
-            source={imageFront}
-          >
+          <Image style={[BASE_SIZE, s.cardFace, transform]} source={imageFront}>
             <Image style={[s.icon]} source={Icons[brand]} />
             <Text
               style={[
@@ -215,11 +205,8 @@ const s = StyleSheet.create({
                 {!cvc ? placeholder.cvc : cvc}
               </Text>
             )}
-          </ImageBackground>
-          <ImageBackground
-            style={[BASE_SIZE, s.cardFace, transform]}
-            source={imageBack}
-          >
+          </Image>
+          <Image style={[BASE_SIZE, s.cardFace, transform]} source={imageBack}>
             <Text
               style={[
                 s.baseText,
@@ -230,7 +217,7 @@ const s = StyleSheet.create({
             >
               {!cvc ? placeholder.cvc : cvc}
             </Text>
-          </ImageBackground>
+          </Image>
         </FlipCard>
       </View>
     );
